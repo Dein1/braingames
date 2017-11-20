@@ -7,3 +7,6 @@ start:
 publish:
 	npm publish
 
+lint:
+	npm run eslint ./src/bin/brain-games.js ./src/index.js
+

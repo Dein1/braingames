@@ -1,12 +1,12 @@
 import readlineSync from 'readline-sync';
 
-const askName = () => {
+export const askName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
   return name;
 };
 
-const engine = (name, questionFun, answerFun) => {
+export const engine = (name, questionFun, answerFun) => {
   const iter = (gameCounter) => {
     if (gameCounter >= 3) {
       console.log(`Congratulations, ${name}!`);
@@ -26,5 +26,3 @@ const engine = (name, questionFun, answerFun) => {
   };
   return iter(0);
 };
-
-export { askName, engine };

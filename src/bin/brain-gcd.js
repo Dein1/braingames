@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 import { askName, engine } from '../index';
-import { question, answer } from '../games/even';
+import { question, answer } from '../games/gcd';
 
 console.log(`Welcome to the Brain Games!
-Answer "yes" if number even otherwise answer "no". \n`);
+Find the greatest common divisor of given numbers. \n`);
 
 const name = askName();
 engine(name, question, answer);

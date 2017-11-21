@@ -1,34 +1,30 @@
 import readlineSync from 'readline-sync';
 
-export const askName = () => {
+const askName = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
   return name;
 };
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
-
-export const evenGame = (name) => {
-  const iter = (counter) => {
-    if (counter >= 3) {
+const engine = (name, questionFun, answerFun) => {
+  const iter = (gameCounter) => {
+    if (gameCounter >= 3) {
       console.log(`Congratulations, ${name}!`);
-      return undefined;
+      return NaN;
     }
-    const number = Math.round(Math.random() * 30);
-    console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (isEven(number) === answer) {
+    const question = questionFun();
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    const realAnswer = answerFun(question);
+    if (realAnswer === userAnswer) {
       console.log('Correct!');
-      return iter(counter + 1);
+      return iter(gameCounter + 1);
     }
-    console.log(`'${answer}' is the wrong answer. Correct answer is '${isEven(number)}'`);
+    console.log(`'${userAnswer}' is the wrong answer. Correct answer is '${realAnswer}'`);
     console.log(`Let's try again, ${name}!`);
-    return undefined;
+    return NaN;
   };
   return iter(0);
 };
+
+export { askName, engine };

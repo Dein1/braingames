@@ -1,6 +1,6 @@
 import { engine, askName } from '../index';
 
-const counter = (a, b, op) => {
+const calculate = (a, b, op) => {
   switch (op) {
     case '+':
       return a + b;
@@ -19,7 +19,7 @@ const question = () => {
   const operators = ['+', '-', '*'];
   const rand = Math.floor(Math.random() * operators.length);
   const operation = operators[rand];
-  const answer = counter(a, b, operation).toString();
+  const answer = calculate(a, b, operation).toString();
   return [`${a} ${operation} ${b}`, answer];
 };
 

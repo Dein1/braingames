@@ -10,7 +10,7 @@ export const engine = (name, gameFun) => {
   const iter = (gameCounter) => {
     if (gameCounter >= 3) {
       console.log(`Congratulations, ${name}!`);
-      return NaN;
+      return true;
     }
     const [question, answer] = gameFun();
     console.log(`Question: ${question}`);
@@ -21,7 +21,7 @@ export const engine = (name, gameFun) => {
     }
     console.log(`'${userAnswer}' is the wrong answer. Correct answer is '${answer}'`);
     console.log(`Let's try again, ${name}!`);
-    return NaN;
+    return false;
   };
   return iter(0);
 };

@@ -13,6 +13,8 @@ const question = () => {
 };
 
 export default () => {
+  console.log(`Welcome to the Brain Games!
+  Answer "yes" if number even otherwise answer "no". \n`);
   const name = askName();
   return engine(name, question);
 };

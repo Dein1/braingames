@@ -24,6 +24,8 @@ const question = () => {
 };
 
 export default () => {
+  console.log(`Welcome to the Brain Games!
+  What is the result of the expression? \n`);
   const name = askName();
   return engine(name, question);
 };

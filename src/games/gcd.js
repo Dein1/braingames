@@ -15,6 +15,8 @@ const question = () => {
 };
 
 export default () => {
+  console.log(`Welcome to the Brain Games!
+  Find the greatest common divisor of given numbers. \n`);
   const name = askName();
   return engine(name, question);
 };

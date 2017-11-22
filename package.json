@@ -1,6 +1,6 @@
 {
   "name": "braingames-dm-abramov",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "My first hexlet.io project",
   "main": "dist/bin/brain-games.js",
   "bin": {

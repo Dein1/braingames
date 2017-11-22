@@ -1,3 +1,5 @@
+import { engine, askName } from '../index';
+
 const gcd = (a, b) => {
   if (b === 0) {
     return a;
@@ -5,14 +7,14 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-export const question = () => {
+const question = () => {
   const a = Math.round(Math.random() * 20);
   const b = Math.round(Math.random() * 20);
-  return `${a} ${b}`;
+  const answer = gcd(a, b).toString();
+  return [`${a} ${b}`, answer];
 };
 
-
-export const answer = (expression) => {
-  const [a, b] = expression.split(' ');
-  return gcd(Number(a), Number(b)).toString();
+export default () => {
+  const name = askName();
+  return engine(name, question);
 };

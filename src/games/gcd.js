@@ -1,4 +1,4 @@
-import { engine, askName } from '../index';
+import { engine } from '..';
 
 const gcd = (a, b) => {
   if (b === 0) {
@@ -7,7 +7,7 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const question = () => {
+const generateGameSet = () => {
   const a = Math.round(Math.random() * 20);
   const b = Math.round(Math.random() * 20);
   const answer = gcd(a, b).toString();
@@ -15,8 +15,6 @@ const question = () => {
 };
 
 export default () => {
-  console.log(`Welcome to the Brain Games!
-  Find the greatest common divisor of given numbers. \n`);
-  const name = askName();
-  return engine(name, question);
+  const rules = 'Find the greatest common divisor of given numbers.';
+  return engine(generateGameSet, rules);
 };

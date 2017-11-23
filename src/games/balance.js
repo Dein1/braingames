@@ -1,4 +1,4 @@
-import { engine, askName } from '../index';
+import { engine } from '..';
 
 const isBalanced = (arr) => {
   if (Math.abs(arr[0] - arr[arr.length - 1]) > 1) {
@@ -7,7 +7,7 @@ const isBalanced = (arr) => {
   return true;
 };
 
-const balancer = (number) => {
+const balance = (number) => {
   const array = number.toString().split('').map(Number).sort();
   const iter = (items) => {
     if (isBalanced(items)) {
@@ -24,15 +24,13 @@ const balancer = (number) => {
   return iter(array);
 };
 
-const question = () => {
+const generateGameSet = () => {
   const number = Math.round(Math.random() * 9999);
-  const answer = balancer(number);
+  const answer = balance(number);
   return [number, answer];
 };
 
 export default () => {
-  console.log(`Welcome to the Brain Games!
-  Balance the given number.\n`);
-  const name = askName();
-  return engine(name, question);
+  const rules = 'Balance the given number.';
+  return engine(generateGameSet, rules);
 };

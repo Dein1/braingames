@@ -1,4 +1,4 @@
-import { engine, askName } from '../index';
+import { engine } from '..';
 
 const isEven = (number) => {
   if (number % 2 === 0) {
@@ -7,15 +7,12 @@ const isEven = (number) => {
   return 'no';
 };
 
-const question = () => {
+const generateGameSet = () => {
   const num = Math.round(Math.random() * 30);
   return [num, isEven(num)];
 };
 
 export default () => {
-  console.log(`Welcome to the Brain Games!
-  Answer "yes" if number even otherwise answer "no". \n`);
-  const name = askName();
-  return engine(name, question);
+  const rules = 'Answer "yes" if number even otherwise answer "no".';
+  return engine(generateGameSet, rules);
 };
-

@@ -6,7 +6,11 @@ export const askName = () => {
   return name;
 };
 
-export const engine = (name, gameFun) => {
+export const engine = (gameFun, gameRules) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`${gameRules}\n`);
+  const name = askName();
+
   const iter = (gameCounter) => {
     if (gameCounter >= 3) {
       console.log(`Congratulations, ${name}!`);

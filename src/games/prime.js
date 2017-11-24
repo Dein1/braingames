@@ -3,16 +3,16 @@ import { engine } from '..';
 const isPrime = (number) => {
   const iter = (divisor) => {
     if (divisor > number / 2) {
-      return 'yes';
+      return true;
     }
-    return number % divisor === 0 ? 'no' : iter(divisor + 1);
+    return number % divisor === 0 ? false : iter(divisor + 1);
   };
   return iter(2);
 };
 
 const generateGameSet = () => {
   const question = Math.round(Math.random() * 500);
-  const answer = isPrime(question);
+  const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
 

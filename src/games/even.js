@@ -1,15 +1,11 @@
 import { engine } from '..';
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
+const isEven = number => number % 2 === 0;
 
 const generateGameSet = () => {
   const num = Math.round(Math.random() * 30);
-  return [num, isEven(num)];
+  const answer = isEven(num) ? 'yes' : 'no';
+  return [num, answer];
 };
 
 export default () => {
